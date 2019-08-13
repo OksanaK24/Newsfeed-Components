@@ -89,7 +89,7 @@ const data = [
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
+
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
@@ -112,3 +112,50 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+function TitleCreator(title){
+  let ArtTitle = document.createElement("h2")
+  ArtTitle.textContent = title;
+  return ArtTitle;
+}
+
+function DateOfArtCreator (date){
+  let DateOfArt = document.createElement("p")
+  DateOfArt.classList.add(".date")
+  DateOfArt.textContent = date
+  return DateOfArt
+}
+
+function parag1 (p1){
+  let par1 = document.createElement("p")
+  par1.textContent = p1;
+  return par1;
+}
+
+function parag2 (p2){
+  let par2 = document.createElement("p")
+  par2.textContent = p2;
+  return par2;
+}
+
+function parag3 (p3){
+  let par3 = document.createElement("p")
+  par3.textContent = p3;
+  return par3;
+}
+
+function ArticleCreator (){
+  let Article = document.createElement("div");
+  Article.classList.add("article");
+  Article.appendChild = TitleCreator(data.title);
+  Article.appendChild = DateOfArtCreator(data.date);
+  Article.appendChild = parag1(data.firstParagraph);
+  Article.appendChild = parag2(data.secondParagraph);
+  Article.appendChild = parag3(data.thirdParagraph);
+  return Article
+}
+
+const container = document.querySelector('.articles')
+data.forEach ((Article) =>{
+  let newArticle = ArticleCreator(Article)
+  return container.appendChild(newArticle)
+})
