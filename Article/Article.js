@@ -197,11 +197,6 @@ const container = document.querySelector('.articles')
 //   Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `
 // })
 let newData = data;
-let newArticle = newData.map((data) => {
-  return ArticleCreator(data)
-})
-console.log(newData);
-
 newData.push({
   title: "My new article",
   date: "Aug 13th, 2019",
@@ -214,12 +209,29 @@ newData.push({
   thirdParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
   Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `
 })
+let newArticle = newData.map((data) => {
+  return ArticleCreator(data)
+})
 
 newArticle.forEach ((newData) =>{
      container.appendChild(newData)
   })
 
+// let fifthChild = ArticleCreator({
+//   title: "My new article",
+//   date: "Aug 13th, 2019",
+//   firstParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+//         Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `,
 
+//   secondParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+//   Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `,
+
+//   thirdParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+//   Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `
+// }
+// )
+// console.log(fifthChild)
+// container.appendChild(fifthChild)
 
 // data.forEach ((data) =>{
 //   let newArticle = ArticleCreator(data)
