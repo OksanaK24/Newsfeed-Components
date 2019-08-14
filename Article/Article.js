@@ -89,7 +89,7 @@ const data = [
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
+
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
@@ -112,3 +112,131 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+// function TitleCreator(title){
+//   let ArtTitle = document.createElement("h2")
+//   ArtTitle.textContent = title;
+//   return ArtTitle;
+// }
+
+// function DateOfArtCreator (date){
+//   let DateOfArt = document.createElement("p")
+//   DateOfArt.classList.add(".date")
+//   DateOfArt.textContent = date
+//   return DateOfArt
+// }
+
+// function parag1 (p1){
+//   let par1 = document.createElement("p")
+//   par1.textContent = p1;
+//   return par1;
+// }
+
+// function parag2 (p2){
+//   let par2 = document.createElement("p")
+//   par2.textContent = p2;
+//   return par2;
+// }
+
+// function parag3 (p3){
+//   let par3 = document.createElement("p")
+//   par3.textContent = p3;
+//   return par3;
+// }
+
+function ArticleCreator (arr){
+  let Article = document.createElement("div");
+  Article.classList.add("article");
+  // for(let i=0; i<data.length; i++){
+    
+  let ArtTitle = document.createElement("h2")
+  ArtTitle.textContent = arr.title;
+
+  let DateOfArt = document.createElement("p")
+  DateOfArt.classList.add("date")
+  DateOfArt.textContent = arr.date;
+
+  let par1 = document.createElement("p")
+  par1.textContent = arr.firstParagraph;
+
+  let par2 = document.createElement("p")
+  par2.textContent = arr.secondParagraph;
+
+  let par3 = document.createElement("p")
+  par3.textContent = arr.thirdParagraph;
+
+  let expBut = document.createElement("span")
+  expBut.classList.add("expandButton")
+  expBut.textContent = "VVVVV"
+  expBut.addEventListener("click", (event) => {
+  Article.classList.toggle("article-open")
+  })
+   
+
+
+    Article.appendChild(ArtTitle);
+    Article.appendChild(DateOfArt);
+    Article.appendChild(par1);
+    Article.appendChild(par2);
+    Article.appendChild(par3);
+    Article.appendChild(expBut);
+// }
+  return Article
+}
+
+const container = document.querySelector('.articles')
+// data.push({
+//   title: "My new article",
+//   date: "Aug 13th, 2019",
+//   firstParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+//         Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `,
+
+//   secondParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+//   Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `,
+
+//   thirdParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+//   Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `
+// })
+let newData = data;
+newData.push({
+  title: "My new article",
+  date: "Aug 13th, 2019",
+  firstParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+        Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `,
+
+  secondParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+  Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `,
+
+  thirdParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+  Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `
+})
+let newArticle = newData.map((data) => {
+  return ArticleCreator(data)
+})
+
+newArticle.forEach ((newData) =>{
+     container.appendChild(newData)
+  })
+
+// let fifthChild = ArticleCreator({
+//   title: "My new article",
+//   date: "Aug 13th, 2019",
+//   firstParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+//         Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `,
+
+//   secondParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+//   Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `,
+
+//   thirdParagraph: `Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla 
+//   Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla Bla-Bla-Bla `
+// }
+// )
+// console.log(fifthChild)
+// container.appendChild(fifthChild)
+
+// data.forEach ((data) =>{
+//   let newArticle = ArticleCreator(data)
+//   return container.appendChild(newArticle)
+// })
+
+
+
